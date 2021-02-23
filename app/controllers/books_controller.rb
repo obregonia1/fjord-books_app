@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
+  before_action :set_book, :set_locale, only: %i[show edit update destroy]
 
   # GET /books
   # GET /books.json
@@ -73,3 +73,7 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :memo, :author, :picture)
   end
 end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
