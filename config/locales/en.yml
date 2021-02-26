@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  Editing: "Editing Book"
+  confirmation: "Are you sure?"
+  create_message: "Book was successfully created."
+  update_message: "Book was successfully updated."
+  destroy_message: "Book was successfully destroyed."
