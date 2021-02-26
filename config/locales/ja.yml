@@ -226,3 +226,9 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  links:
+    books: '本一覧'
+    users: 'ユーザー一覧'
+    edit_profile: 'プロフィール編集'
+    logout: 'ログアウト'
+  logged: 'ログイン中です。ユーザー名:'
