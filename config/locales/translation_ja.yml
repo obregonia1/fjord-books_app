@@ -10,3 +10,8 @@ ja:
         memo: メモ  #g
         picture: 画像  #g
         title: 題名  #g
+      user:
+        username: ユーザー名 #g
+        zipcode: 郵便番号 #g
+        address: 住所 #g
+        introduction: 自己紹介 #g
