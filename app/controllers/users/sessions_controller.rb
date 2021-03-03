@@ -3,12 +3,12 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  def after_sign_in_path_for(resource)
-  '/books'
+  def after_sign_in_path_for(_resource)
+    '/books'
   end
 
-  def after_sign_out_path_for(resource)
-  '/users/sign_in'
+  def after_sign_out_path_for(_resource)
+    '/users/sign_in'
   end
   # GET /resource/sign_in
   # def new
