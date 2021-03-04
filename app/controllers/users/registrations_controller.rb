@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(_resource)
-    books_path
+    users_index_path
   end
   # GET /resource/sign_up
   # def new
