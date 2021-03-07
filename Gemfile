@@ -65,5 +65,5 @@ gem 'dotenv-rails'
 gem 'kaminari'
 gem 'omniauth', '~> 1.9.1'
 gem 'omniauth-github'
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
 gem 'pry-rails'
