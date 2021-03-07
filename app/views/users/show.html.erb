@@ -1,0 +1,29 @@
+<h1><%= User.model_name.human %><%= t('profile') %></h1>
+<p>
+  <strong><%= User.human_attribute_name(:username) %>:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:zipcode) %>:</strong>
+  <%= @user.zipcode.to_s.insert(3, '-') if @user.zipcode %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:introduction) %>:</strong>
+  <%= @user.introduction %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+
+
+<%= link_to t('views.common.back'), users_path %>
