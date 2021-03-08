@@ -8,8 +8,4 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
-  def thumbnail
-    self.image.variant(resize: '300x300').processed
-  end
 end
