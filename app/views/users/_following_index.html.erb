@@ -1,0 +1,29 @@
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th><%= User.human_attribute_name(:email) %></th>
+    <th><%= User.human_attribute_name(:name) %></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% users.each do |user| %>
+    <tr>
+      <td>
+        <% if user.avatar.attached? %>
+          <%= image_tag user.avatar.variant(resize_to_fill: [30, 30])%>
+        <% end %>
+      </td>
+      <td><%= user.email %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to t('views.common.show'), user %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate users %>
+
+<%= link_to t('views.common.back'), user_path %>
+<%= link_to User.model_name.human, users_path %>
