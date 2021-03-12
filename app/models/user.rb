@@ -15,6 +15,8 @@ class User < ApplicationRecord
 
   has_many :reports, dependent: :destroy
 
+  has_many :comments, as: :commentable
+
   validates :uid, uniqueness: { scope: :provider }, if: -> { uid.present? }
 
   def self.from_omniauth(auth)
