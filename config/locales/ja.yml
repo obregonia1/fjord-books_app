@@ -219,6 +219,7 @@ ja:
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
       created_at: 作成日時
+      no_comment: コメントはありません。
     pagination:
       first: '最初'
       last: '最後'
