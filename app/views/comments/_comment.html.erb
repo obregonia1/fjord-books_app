@@ -1,6 +1,10 @@
 <strong><%= Comment.model_name.human %></strong><br>
 <% commentable.comments.each do |comment| %>
-  <%= comment.user.name == '' ?  comment.user.email : comment.user.name %>
+  <% if comment.user.avatar.attached? %>
+    <%= image_tag comment.user.avatar.variant(resize_to_fill: [30, 30])%>
+  <% end %>
+  <% user_name = comment.user.name == '' ?  comment.user.email : comment.user.name %>
+  <%= link_to user_name, comment.user %>:
   <%= comment.text %>
   <%= l comment.created_at, format: :short %><hr>
 <% end %>
