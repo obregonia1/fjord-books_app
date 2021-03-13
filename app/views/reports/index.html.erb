@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th><%= User.model_name.human %></th>
+      <th colspan="2"><%= User.model_name.human %></th>
       <th><%= Report.human_attribute_name(:title) %></th>
       <th><%= t('views.common.created_at') %></th>
     </tr>
@@ -14,6 +14,11 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
+        <td>
+          <% if report.user.avatar.attached? %>
+            <%= image_tag report.user.avatar.variant(resize_to_fill: [30, 30])%>
+          <% end %>
+        </td>
         <% user_name = report.user.name == '' ?  report.user.email : report.user.name %>
         <td><%= link_to user_name, user_path(report.user) %></td>
         <td><%= link_to report.title, report %></td>
