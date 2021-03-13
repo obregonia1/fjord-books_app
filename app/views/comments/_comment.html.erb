@@ -1,0 +1,11 @@
+<strong><%= Comment.model_name.human %></strong><br>
+<% commentable.comments.each do |comment| %>
+  <%= comment.user.name == '' ?  comment.user.email : comment.user.name %>
+  <%= comment.text %>
+  <%= l comment.created_at, format: :short %><hr>
+<% end %>
+
+<%= form_with model: [commentable, Comment.new] do |form| %>
+  <%= form.text_area :text %><br>
+  <%= form.submit %>
+<% end %>
