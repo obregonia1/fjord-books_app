@@ -16,5 +16,5 @@
 
 <%= form_with model: [commentable, Comment.new] do |form| %>
   <%= form.text_area :text, required: true %><br>
-  <%= form.submit %>
+  <%= form.submit value: t('views.common.comment') %>
 <% end %>
