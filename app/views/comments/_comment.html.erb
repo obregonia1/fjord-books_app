@@ -2,13 +2,18 @@
 
 <% if commentable.comments.present? %>
   <% commentable.comments.each do |comment| %>
-      <% if comment.user.avatar.attached? %>
-        <%= image_tag comment.user.avatar.variant(resize_to_fill: [30, 30])%>
-      <% end %>
-      <% user_name = comment.user.name == '' ?  comment.user.email : comment.user.name %>
-      <%= link_to user_name, comment.user %>:
-      <%= comment.text %>
-      <%= l comment.created_at, format: :short %><hr>
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar.variant(resize_to_fill: [30, 30])%>
+    <% end %>
+    <% user_name = comment.user.name == '' ?  comment.user.email : comment.user.name %>
+    <%= link_to user_name, comment.user %>:
+    <%= comment.text %>
+    <%= l comment.created_at, format: :short %>
+    <% if comment.user == current_user %>
+      <%= link_to t('views.common.edit'), edit_comment_path(comment) %> |
+      <%= link_to t('views.common.destroy'), comment, method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+    <% end %>
+    <hr>
   <% end %>
 <% else %>
   <p><%= t('views.common.no_comment') %></p><hr>
