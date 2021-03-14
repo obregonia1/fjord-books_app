@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  before_action :set_current_user_report, only: [:edit, :update, :destroy]
+  before_action :set_current_user_report, only: %i[edit update destroy]
 
   # GET /reports
   # GET /reports.json
@@ -20,8 +22,7 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /reports
   # POST /reports.json
@@ -59,13 +60,14 @@ class ReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_current_user_report
-      @report = current_user.reports.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def report_params
-      params.require(:report).permit(:title, :text, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_current_user_report
+    @report = current_user.reports.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def report_params
+    params.require(:report).permit(:title, :text, :user_id)
+  end
 end
