@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.order(:id).page(params[:page])
+    @reports = Report.order(:id).page(params[:page]).includes(user: { avatar_attachment: :blob })
   end
 
   # GET /reports/1
