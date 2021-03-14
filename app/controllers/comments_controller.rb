@@ -5,8 +5,12 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.save
-    redirect_to @commentable
+    if @comment.text.blank?
+      redirect_to @commentable, notice: t('views.common.require_comment')
+    else
+      @comment.save
+      redirect_to @commentable
+    end
   end
 
   private

@@ -221,6 +221,7 @@ ja:
       created_at: 作成日時
       no_comment: コメントはありません。
       comment: コメントする
+      require_comment: コメントを入力して下さい。
     pagination:
       first: '最初'
       last: '最後'
