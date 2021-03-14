@@ -63,6 +63,6 @@ gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
 gem 'kaminari'
-
+gem 'mini_magick', '~> 4.8'
 gem 'omniauth'
 gem 'omniauth-github'
