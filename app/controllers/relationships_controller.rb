@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
     redirect_to user_path(user)
   end
 
-  protected
+  private
 
   def user
     User.find(params[:relationship][:following_id])
