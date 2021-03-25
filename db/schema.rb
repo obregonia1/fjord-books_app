@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_042753) do
+ActiveRecord::Schema.define(version: 2021_03_25_050148) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_042753) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_03_12_042753) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "text"
+    t.string "text", null: false
     t.string "commentable_type", null: false
     t.integer "commentable_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -70,11 +70,11 @@ ActiveRecord::Schema.define(version: 2021_03_12_042753) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
+    t.string "title", null: false
+    t.text "text", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
