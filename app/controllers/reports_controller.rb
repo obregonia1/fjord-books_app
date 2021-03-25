@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
-    @report = current_user.reports.build
+    @report = Report.new
   end
 
   # GET /reports/1/edit
@@ -28,6 +28,7 @@ class ReportsController < ApplicationController
   # POST /reports.json
   def create
     @report = Report.new(report_params)
+    @report.user = current_user
 
     if @report.save
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
@@ -62,6 +63,6 @@ class ReportsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:title, :text, :user_id)
+    params.require(:report).permit(:title, :text)
   end
 end
