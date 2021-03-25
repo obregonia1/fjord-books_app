@@ -8,8 +8,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.text.blank?
       redirect_to @commentable, notice: t('views.common.require_comment')
+    elsif @comment.save
+      redirect_to @commentable, notice: t('views.common.commented')
     else
-      @comment.save
       redirect_to @commentable
     end
   end
@@ -17,8 +18,11 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    @comment.update(comment_params)
+    if @comment.update(comment_params)
     redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+    else
+    redirect_to @comment.commentable
+    end
   end
 
   def destroy

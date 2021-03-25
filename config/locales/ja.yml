@@ -222,6 +222,7 @@ ja:
       no_comment: コメントはありません。
       comment: コメントする
       require_comment: コメントを入力して下さい。
+      commented: コメントしました。
     pagination:
       first: '最初'
       last: '最後'
