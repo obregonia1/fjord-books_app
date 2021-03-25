@@ -19,9 +19,9 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-    redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
+      redirect_to @comment.commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
-    redirect_to @comment.commentable
+      redirect_to @comment.commentable
     end
   end
 
