@@ -9,3 +9,6 @@ me:
 
 she:
   email: 'she@example.com'
+
+alice:
+  email: 'alice@example.com'
