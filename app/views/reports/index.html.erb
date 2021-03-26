@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= Report.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="2"><%= User.model_name.human %></th>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= t('views.common.created_at') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td>
+          <% if report.user.avatar.attached? %>
+            <%= image_tag report.user.avatar.variant(resize_to_fill: [30, 30])%>
+          <% end %>
+        </td>
+        <% user_name = report.user.name == '' ?  report.user.email : report.user.name %>
+        <td><%= link_to user_name, user_path(report.user) %></td>
+        <td><%= link_to report.title, report %></td>
+        <td><%= l report.created_at, format: :short %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @reports %>
+
+<br>
+
+<%= link_to t('views.common.new'), new_report_path %>
