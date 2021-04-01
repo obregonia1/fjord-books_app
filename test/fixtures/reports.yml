@@ -1,11 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  title: MyString
-  content: MyText
-
-two:
-  user: two
-  title: MyString
-  content: MyText
+alice:
+  user: alice
+  title: foo
+  content: bar
+  created_at: Sat, 20 Mar 2021 18:41:45.262834000 JST +09:00
